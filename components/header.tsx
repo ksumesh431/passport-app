@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const navItems = [
     { name: "Home", href: `${basePath}` },
-    { name: "About Us", href: `${basePath}` },
+    { name: "About Us", href: `${basePath}/about` },
     {
         name: "Services",
         items: [
@@ -59,7 +59,7 @@ const navItems = [
 
     { name: "Blogs", href: `${basePath}` },
     { name: "Testimonials", href: `${basePath}` },
-    { name: "Contact Us", href: `${basePath}` },
+    { name: "Contact Us", href: `${basePath}/contacts` },
 ];
 
 const NavLink = ({ item, depth = 0, isMobile = false }) => {
