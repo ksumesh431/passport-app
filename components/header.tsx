@@ -92,7 +92,7 @@ const NavLink = ({ item, depth = 0, isMobile = false }) => {
 
     // Dropdown classes for widescreen
     const dropdownClasses = depth === 0
-        ? 'absolute left-0 mt-0 w-max z-50 border-4 border-custom-bg-light rounded' 
+        ? 'absolute left-0 mt-0 w-max z-50 border-4 border-custom-bg-light rounded'
         : 'absolute left-full w-max  top-0 mt-0 w-48 z-50 ml-1.5 border-4 border-custom-bg-light rounded '; // Rounded and bordered dropdown for submenus
 
     // Apply custom background for both 1st and 2nd level by default
@@ -102,7 +102,7 @@ const NavLink = ({ item, depth = 0, isMobile = false }) => {
 
     // Mobile behavior: Expand submenus downwards with full width
     const mobileDropdownClasses = isMobile
-        ? `w-full bg-grey-800 ${isOpen ? 'block' : 'hidden' } border-2 border-custom-bg-light rounded  ` // Rounded and bordered dropdowns in mobile view
+        ? `w-full bg-grey-800 ${isOpen ? 'block' : 'hidden'} border-2 border-custom-bg-light rounded  ` // Rounded and bordered dropdowns in mobile view
         : `${dropdownClasses} ${dropdownBgClasses}`;
 
     if (item.href) {

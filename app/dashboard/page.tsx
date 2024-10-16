@@ -11,10 +11,10 @@ export default function Dashboard() {
     <Card />
     <Container className=" min-w-full h-[50vh] px-0" style={{ paddingRight: 0, paddingLeft: 0 }}>
       <Container className="h-[80%]  min-w-full bg-no-repeat bg-center bg-cover bg-image" style={{ backgroundImage: `url(${basePath}/document_services_banner.jpg)`, backgroundSize: "cover" }}></Container>
-      <Container className="min-w-full h-[20%]" style={{ paddingRight: 0, paddingLeft: 0 }}>
-        <footer className="min-w-full h-full bg-custom-bg text-primary-foreground min-h-fit">
-          <p className="m-2 mb-0text-3xl font-bold mt-0 p-2 pt-3 text-white"> Document Services</p>
-          <p className="m-2 mt-0 p-2 text-white"> Notary, provincial, federal certification and embassy legalization services</p>
+      <Container className="min-w-full h-[20%]" style={{ paddingRight: 0, paddingLeft: 0}}>
+        <footer className="min-w-full h-full bg-custom-bg text-primary-foreground min-h-fit max-h-fit ">
+          <p className="m-2 text-3xl font-bold mt-0 p-2 pt-3 text-white"> Document Services</p>
+          <p className="m-2 p-2 text-white"> Notary, provincial, federal certification and embassy legalization services</p>
         </footer>
       </Container>
     </Container>
