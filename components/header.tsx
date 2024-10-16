@@ -26,7 +26,7 @@ const navItems = [
             {
                 name: "Translation Services",
                 items: [
-                    { name: "Documents", href: `${basePath}` },
+                    { name: "Documents", href: `${basePath}/translationServices` },
                     { name: "Whatsapp Chat", href: `${basePath}` },
 
                 ],
