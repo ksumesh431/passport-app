@@ -87,13 +87,13 @@ const NavLink = ({ item, depth = 0, isMobile = false }) => {
         setIsOpen(!isOpen);
     };
 
-    const linkClasses = `block px-4 py-2 text-sm text-white hover:bg-gray-700 hover:text-gray-100 rounded `; // Rounded hover effect
-    const buttonClasses = `flex items-center justify-between w-full px-4 py-2 text-sm text-white hover:bg-gray-700 hover:text-gray-100 rounded`; // Rounded buttons for parent menu
+    const linkClasses = `block px-4 py-2 text-base text-white hover:bg-gray-700 hover:text-gray-100 rounded `; // Rounded hover effect
+    const buttonClasses = `flex items-center justify-between w-full px-4 py-2 text-base text-white hover:bg-gray-700 hover:text-gray-100 rounded`; // Rounded buttons for parent menu
 
     // Dropdown classes for widescreen
     const dropdownClasses = depth === 0
-        ? 'absolute left-0 mt-0 w-48 z-50 border-4 border-custom-bg-light rounded' 
-        : 'absolute left-full top-0 mt-0 w-48 z-50 ml-1.5  border-4 border-custom-bg-light rounded '; // Rounded and bordered dropdown for submenus
+        ? 'absolute left-0 mt-0 w-max z-50 border-4 border-custom-bg-light rounded' 
+        : 'absolute left-full w-max  top-0 mt-0 w-48 z-50 ml-1.5 border-4 border-custom-bg-light rounded '; // Rounded and bordered dropdown for submenus
 
     // Apply custom background for both 1st and 2nd level by default
     const dropdownBgClasses = depth <= 1
