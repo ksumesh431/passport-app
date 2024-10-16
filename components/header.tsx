@@ -4,7 +4,14 @@ import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { basePath } from '../utils/config';
 import Link from 'next/link';
 
-const navItems = [
+// Define the type for nav items
+type NavItem = {
+    name: string;
+    href?: string;
+    items?: NavItem[];
+};
+
+const navItems: NavItem[] = [
     { name: "Home", href: `${basePath}` },
     { name: "About Us", href: `${basePath}/about` },
     {
@@ -28,7 +35,6 @@ const navItems = [
                 items: [
                     { name: "Documents", href: `${basePath}/translationServices` },
                     { name: "Whatsapp Chat", href: `${basePath}` },
-
                 ],
             },
             {
@@ -36,7 +42,6 @@ const navItems = [
                 items: [
                     { name: "Affidavits", href: `${basePath}` },
                     { name: "Document Notarization", href: `${basePath}` },
-
                 ],
             },
             {
@@ -44,35 +49,33 @@ const navItems = [
                 items: [
                     { name: "General POA", href: `${basePath}` },
                     { name: "Specific POA", href: `${basePath}` },
-
                 ],
             },
             {
                 name: "Run Away Marriges",
-                items: [
-                    { name: "In Middle-east", href: `${basePath}` },
-
-                ],
+                items: [{ name: "In Middle-east", href: `${basePath}` }],
             },
-            {
-                name: "ILETS Training",
-                href: `${basePath}/about`,
-            },
+            { name: "ILETS Training", href: `${basePath}/about` },
         ],
     },
-
     { name: "Blogs", href: `${basePath}` },
     { name: "Testimonials", href: `${basePath}` },
     { name: "Contact Us", href: `${basePath}/contacts` },
 ];
 
-const NavLink = ({ item, depth = 0, isMobile = false }) => {
+type NavLinkProps = {
+    item: NavItem;
+    depth?: number;
+    isMobile?: boolean;
+};
+
+const NavLink: React.FC<NavLinkProps> = ({ item, depth = 0, isMobile = false }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (ref.current && !ref.current.contains(event.target)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (ref.current && !ref.current.contains(event.target as Node)) {
                 setIsOpen(false);
             }
         };
@@ -90,17 +93,13 @@ const NavLink = ({ item, depth = 0, isMobile = false }) => {
     const linkClasses = `block px-4 py-2 text-base text-white hover:bg-gray-700 hover:text-gray-100 rounded `; // Rounded hover effect
     const buttonClasses = `flex items-center justify-between w-full px-4 py-2 text-base text-white hover:bg-gray-700 hover:text-gray-100 rounded`; // Rounded buttons for parent menu
 
-    // Dropdown classes for widescreen
-    const dropdownClasses = depth === 0
-        ? 'absolute left-0 mt-0 w-max z-50 border-4 border-custom-bg-light rounded'
-        : 'absolute left-full w-max  top-0 mt-0 w-48 z-50 ml-1.5 border-4 border-custom-bg-light rounded '; // Rounded and bordered dropdown for submenus
+    const dropdownClasses =
+        depth === 0
+            ? 'absolute left-0 mt-0 w-max z-50 border-4 border-custom-bg-light rounded'
+            : 'absolute left-full w-max top-0 mt-0 w-48 z-50 ml-1.5 border-4 border-custom-bg-light rounded '; // Rounded and bordered dropdown for submenus
 
-    // Apply custom background for both 1st and 2nd level by default
-    const dropdownBgClasses = depth <= 1
-        ? 'bg-custom-bg'
-        : 'bg-custom-bg';
+    const dropdownBgClasses = depth <= 1 ? 'bg-custom-bg' : 'bg-custom-bg';
 
-    // Mobile behavior: Expand submenus downwards with full width
     const mobileDropdownClasses = isMobile
         ? `w-full bg-grey-800 ${isOpen ? 'block' : 'hidden'} border-2 border-custom-bg-light rounded  ` // Rounded and bordered dropdowns in mobile view
         : `${dropdownClasses} ${dropdownBgClasses}`;

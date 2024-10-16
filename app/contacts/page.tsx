@@ -9,11 +9,11 @@ const Contacts = () => {
     message: "",
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     // Handle form submission, e.g., send formData to an API or backend service
     console.log(formData)
@@ -72,7 +72,6 @@ const Contacts = () => {
               value={formData.message}
               onChange={handleChange}
               className="w-full border rounded-md p-2"
-
               required
             />
           </div>
