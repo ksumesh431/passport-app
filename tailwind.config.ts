@@ -12,6 +12,7 @@ const config: Config = {
   		colors: {
 			'custom-bg': '#1c273e',
 			'custom-bg-light': '#6289cc',
+			'cream-bg': '#e7e8ea',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -12,7 +12,7 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-    { name: "Home", href: `${basePath}` },
+    { name: "Home", href: `/` },
     { name: "About Us", href: `${basePath}/about` },
     {
         name: "Services",
@@ -20,46 +20,46 @@ const navItems: NavItem[] = [
             {
                 name: "New Applications",
                 items: [
-                    { name: "New Passport (India/Canada)", href: `${basePath}` },
-                    { name: "Passport Renewal (India/Canada)", href: `${basePath}` },
-                    { name: "PCC (Middle-East/India/Canada)", href: `${basePath}` },
-                    { name: "OCI Applications", href: `${basePath}` },
-                    { name: "Surrender Certificate", href: `${basePath}` },
-                    { name: "PR Card Renewal", href: `${basePath}` },
-                    { name: "Visitor Visa Applications", href: `${basePath}` },
-                    { name: "Driving Extract", href: `${basePath}` },
+                    { name: "New Passport (India/Canada)", href: `/` },
+                    { name: "Passport Renewal (India/Canada)", href: `/` },
+                    { name: "PCC (Middle-East/India/Canada)", href: `/` },
+                    { name: "OCI Applications", href: `/` },
+                    { name: "Surrender Certificate", href: `/` },
+                    { name: "PR Card Renewal", href: `/` },
+                    { name: "Visitor Visa Applications", href: `/` },
+                    { name: "Driving Extract", href: `/` },
                 ],
             },
             {
                 name: "Translation Services",
                 items: [
                     { name: "Documents", href: `${basePath}/translationServices` },
-                    { name: "Whatsapp Chat", href: `${basePath}` },
+                    { name: "Whatsapp Chat", href: `/` },
                 ],
             },
             {
                 name: "Notary Services",
                 items: [
-                    { name: "Affidavits", href: `${basePath}` },
-                    { name: "Document Notarization", href: `${basePath}` },
+                    { name: "Affidavits", href: `/` },
+                    { name: "Document Notarization", href: `/` },
                 ],
             },
             {
                 name: "Power of Attorney",
                 items: [
-                    { name: "General POA", href: `${basePath}` },
-                    { name: "Specific POA", href: `${basePath}` },
+                    { name: "General POA", href: `/` },
+                    { name: "Specific POA", href: `/` },
                 ],
             },
             {
                 name: "Run Away Marriges",
-                items: [{ name: "In Middle-east", href: `${basePath}` }],
+                items: [{ name: "In Middle-east", href: `/` }],
             },
             { name: "ILETS Training", href: `${basePath}/about` },
         ],
     },
-    { name: "Blogs", href: `${basePath}` },
-    { name: "Testimonials", href: `${basePath}` },
+    { name: "Blogs", href: `/` },
+    { name: "Testimonials", href: `/` },
     { name: "Contact Us", href: `${basePath}/contacts` },
 ];
 
@@ -90,8 +90,8 @@ const NavLink: React.FC<NavLinkProps> = ({ item, depth = 0, isMobile = false }) 
         setIsOpen(!isOpen);
     };
 
-    const linkClasses = `block px-4 py-2 text-base text-white hover:bg-gray-700 hover:text-gray-100 rounded `; // Rounded hover effect
-    const buttonClasses = `flex items-center justify-between w-full px-4 py-2 text-base text-white hover:bg-gray-700 hover:text-gray-100 rounded`; // Rounded buttons for parent menu
+    const linkClasses = `block px-4 py-2 text-base text-white hover:bg-gray-700 hover:text-gray-100 rounded font-medium text-xl`; // Rounded hover effect
+    const buttonClasses = `flex items-center justify-between w-full px-4 py-2 text-base text-white hover:bg-gray-700 hover:text-gray-100 rounded font-medium text-xl`; // Rounded buttons for parent menu
 
     const dropdownClasses =
         depth === 0
@@ -133,13 +133,13 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-custom-bg sticky top-0 z-50 lg:flex lg:justify-center lg:items-center text-sm font-medium">
+        <nav className="bg-custom-bg sticky top-0 z-50 lg:flex lg:justify-center lg:items-center sm:py-4">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center space-x-2 mb-2 lg:mb-0 lg:mr-4 ">
-                                <img src={`${basePath}/logo.png`} alt="Logo" className="h-14 w-auto" />
+                                <img src={`${basePath}/logo.png`} alt="Logo" className="h-18 w-auto" />
                             </Link>
                         </div>
                         <div className="hidden lg:block">
