@@ -21,7 +21,7 @@ export default function Dashboard() {
 
 const LinkClassName = "text-wrap text-sm w-full h-full bg-custom-bg text-white flex flex-col items-center hover:bg-[#778899] hover:underline  transition-colors duration-0 rounded-none"
 const ButtonClassName = "text-lg w-full h-full bg-custom-bg text-white flex flex-col items-center hover:bg-[#778899] hover:underline  transition-colors duration-0 rounded-none"
-const ButtonIconClass = "h-28 w-auto mb-2 "
+const ButtonIconClass = "h-26 w-auto mb-2"
 
 export function Card() {
   return (

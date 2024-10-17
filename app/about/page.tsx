@@ -2,11 +2,11 @@ import { Container } from "@/components/ui/container"
 
 const about = () => {
   return (
-    <Container className="mt-4 min-w-[40vw] min-h-fit border-2 border-grey-500" style={{ paddingRight: 0, paddingLeft: 0 }}>
+    <Container className="mt-4 min-w-[40vw] min-h-fit border-2 border-grey-500 bg-white" style={{ paddingRight: 0, paddingLeft: 0 }}>
       <header className="top-0 z-50 w-full border-b bg-custom-bg text-white min-h-[10%]">
         <p className="text-left text-xl font-bold p-2 ml-7">About Us</p>
       </header>
-      <p className="min-w-full min-h-[90%] text-justify px-8 pt-4 pb-4 text-m">
+      <p className="min-w-full min-h-[90%] text-justify px-8 pt-4 pb-4">
         <b>Welcome to Docoaid</b>, your trusted partner in document authentication and legalization. We are a private company with a team of highly experienced agents who specialize in navigating the complex landscape of document verification, authentication, and legalization. With years of expertise in the industry, we have built a reputation for providing reliable, efficient, and secure services tailored to meet the diverse needs of our clients.
         <br></br>
         <br></br>

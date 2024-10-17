@@ -2,7 +2,7 @@ import { Container } from "@/components/ui/container"
 
 const translationServices = () => {
   return (
-    <Container className="mt-4 min-w-[40vw] min-h-fit border-2 border-grey-500" style={{ paddingRight: 0, paddingLeft: 0 }}>
+    <Container className="mt-4 min-w-[40vw] min-h-fit border-2 border-grey-500 bg-white" style={{ paddingRight: 0, paddingLeft: 0 }}>
       <header className="top-0 z-50 w-full border-b bg-custom-bg text-white min-h-[10%]">
         <p className="text-left text-xl font-bold p-2 ml-7">Document Translation Services</p>
       </header>
