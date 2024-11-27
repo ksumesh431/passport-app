@@ -1,5 +1,6 @@
 'use client'
 import { Container } from "@/components/ui/container"
+import { ArrowPathIcon } from "@heroicons/react/24/solid"
 import { useState } from "react"
 
 const Contacts = () => {
@@ -9,20 +10,49 @@ const Contacts = () => {
     message: "",
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Handle form submission, e.g., send formData to an API or backend service
-    console.log(formData)
-    alert("Query submitted! We'll get back to you soon.")
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    })
+    setIsSubmitting(true)
+    setError(null)
+
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      query: formData.message,
+    }
+
+    try {
+      const response = await fetch("https://nowk6gpjo9.execute-api.ca-central-1.amazonaws.com/prod/queries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`)
+      }
+
+      alert("Query submitted! We'll get back to you soon.")
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      })
+    } catch (err) {
+      console.error("Error submitting form:", err)
+      setError("Failed to submit your query. Please try again later.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -48,8 +78,9 @@ const Contacts = () => {
               id="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full border rounded-md p-2"
+              className="w-full border rounded-md p-2 disabled:bg-gray-100 disabled:cursor-not-allowed"
               required
+              disabled={isSubmitting}
             />
           </div>
           <div className="mb-4">
@@ -60,8 +91,9 @@ const Contacts = () => {
               id="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full border rounded-md p-2"
+              className="w-full border rounded-md p-2 disabled:bg-gray-100 disabled:cursor-not-allowed"
               required
+              disabled={isSubmitting}
             />
           </div>
           <div className="mb-4">
@@ -71,11 +103,28 @@ const Contacts = () => {
               id="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full border rounded-md p-2"
+              className="w-full border rounded-md p-2 min-h-[100px] disabled:bg-gray-100 disabled:cursor-not-allowed"
               required
+              disabled={isSubmitting}
             />
           </div>
-          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+          {error && (
+            <p className="text-red-500 mb-4">{error}</p>
+          )}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[100px]"
+          >
+            {isSubmitting ? (
+              <>
+                <ArrowPathIcon className="h-5 w-5 mr-2 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              'Submit'
+            )}
+          </button>
         </form>
       </div>
     </Container>
