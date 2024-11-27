@@ -10,7 +10,7 @@ export default function Dashboard() {
   return (<Container className="mt-10 min-w-[80vw] min-h-[90vh]">
     <Card />
     <Container className=" min-w-full h-[50vh] px-0" style={{ paddingRight: 0, paddingLeft: 0 }}>
-      <Container className="h-[120%]  min-w-full bg-no-repeat bg-center bg-cover bg-image" style={{ backgroundImage: `url(${basePath}/document_services_banner.jpg)`, backgroundSize: "cover" }}></Container>
+      <Container className="h-[120%]  min-w-full bg-no-repeat bg-center bg-cover bg-image" style={{ backgroundImage: `url(${basePath}/document_services_banner.webp)`, backgroundSize: "cover" }}></Container>
       <Container className="min-w-full bg-custom-bg  min-h-[20%] center-items" style={{ paddingRight: 0, paddingLeft: 0 }}>
         <Footer />
       </Container>
